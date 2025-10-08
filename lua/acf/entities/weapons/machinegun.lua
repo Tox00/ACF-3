@@ -1,36 +1,35 @@
-local ACF     = ACF
+local ACF = ACF
 local Weapons = ACF.Classes.Weapons
 
-
 Weapons.Register("MG", {
-	Name        = "Machinegun",
+	Name = "Machinegun",
 	Description = "#acf.descs.weapons.mg",
-	Model       = "models/machinegun/machinegun_20mm.mdl",
-	Sound       = "acf_base/weapons/mg_fire4.mp3",
+	Model = "models/machinegun/machinegun_20mm.mdl",
+	Sound = "acf_base/weapons/mg_fire4.mp3",
 	MuzzleFlash = "mg_muzzleflash_noscale",
-	IsScalable  = true,
+	IsScalable = true,
 	IsAutomatic = true,
-	IsBelted	= true,
-	Spread      = 0.16,
-	Mass        = 53,
+	IsBelted = false,
+	Spread = 0.16,
+	Mass = 53,
 	ScaleFactor = 1.0, -- Corrective factor to account for improperly scaled base models
 	TransferMult = 20, -- Thermal energy transfer rate
 	CyclicCeilMult = 2, -- How high above base cyclic the gun can be set to
 	Round = {
-		MaxLength  = 16,
+		MaxLength = 16,
 		PropLength = 13,
 	},
 	Preview = {
 		Height = 60,
-		FOV    = 60,
+		FOV = 60,
 	},
-	Caliber	= {
-		Base = 20,
-		Min  = 5.56,
-		Max  = 20,
+	Caliber = {
+		Base = 7.62,
+		Min = 7.5,
+		Max = 13,
 	},
 	MagSize = {
-		Min = 400,
+		Min = 300,
 		Max = 100,
 	},
 	MagReload = {
@@ -38,14 +37,14 @@ Weapons.Register("MG", {
 		Max = 12,
 	},
 	Cyclic = {
-		Min = 900,
-		Max = 600,
+		Min = 600,
+		Max = 450,
 	},
 	LimitConVar = {
 		Name = "_acf_machinegun",
 		Amount = 4,
-		Text = "Maximum amount of ACF machine guns a player can create."
-	}
+		Text = "Maximum amount of ACF machine guns a player can create.",
+	},
 })
 
 Weapons.RegisterItem("7.62mmMG", "MG", {
@@ -72,7 +71,7 @@ ACF.SetCustomAttachment("models/machinegun/machinegun_20mm.mdl", "muzzle", Vecto
 
 ACF.AddHitboxes("models/machinegun/machinegun_20mm.mdl", {
 	Base = {
-		Pos   = Vector(20.1, 0.2, -1.5),
+		Pos = Vector(20.1, 0.2, -1.5),
 		Scale = Vector(68, 2, 6),
-	}
+	},
 })

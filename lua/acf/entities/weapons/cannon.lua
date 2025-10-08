@@ -1,4 +1,4 @@
-local ACF     = ACF
+local ACF = ACF
 local Weapons = ACF.Classes.Weapons
 
 local OldModels = {
@@ -42,30 +42,29 @@ local PortingData = {
 	},
 }
 
-
 Weapons.Register("C", {
-	Name        = "Cannon",
+	Name = "Cannon",
 	Description = "#acf.descs.weapons.c",
-	Model       = "models/tankgun_new/tankgun_100mm.mdl",
-	Sound       = "acf_base/weapons/cannon_new.mp3",
+	Model = "models/tankgun_new/tankgun_100mm.mdl",
+	Sound = "acf_base/weapons/cannon_new.mp3",
 	MuzzleFlash = "cannon_muzzleflash_noscale",
-	IsScalable  = true,
-	Mass        = 2031,
-	Spread      = 0.08,
+	IsScalable = true,
+	Mass = 2031,
+	Spread = 0.08,
 	ScaleFactor = 0.84, -- Corrective factor to account for improperly scaled base models
 	TransferMult = 4, -- Thermal energy transfer rate
 	Round = {
-		MaxLength  = 80,
+		MaxLength = 80,
 		PropLength = 65,
 	},
 	Preview = {
 		Height = 50,
-		FOV    = 60,
+		FOV = 60,
 	},
-	Caliber	= {
-		Base = 100,
-		Min  = 20,
-		Max  = 170,
+	Caliber = {
+		Base = 75,
+		Min = 20,
+		Max = 100,
 	},
 	Sounds = {
 		[50] = "acf_base/weapons/ac_fire4.mp3",
@@ -73,16 +72,20 @@ Weapons.Register("C", {
 	VerifyData = function(Data)
 		local Model = Data.Model
 
-		if not (Model and OldModels[Model]) then return end
+		if not (Model and OldModels[Model]) then
+			return
+		end
 
 		local Bodygroups = Data.BodyG
-		local Result     = {}
+		local Result = {}
 
 		if Bodygroups then
 			for Index, Value in pairs(Bodygroups) do
 				local OldData = PortingData[Index]
 
-				if not OldData then continue end
+				if not OldData then
+					continue
+				end
 
 				local NewData = OldData[Value]
 
@@ -106,9 +109,15 @@ Weapons.Register("C", {
 	BreechConfigs = {
 		MeasuredCaliber = 17.0,
 		Locations = {
-			{Name = "Breech", LPos = Vector(-58.9363, 0, 0), LAng = Angle(0, 0, 0), Width = 6.6929133858268, Height = 6.6929133858268},
-		}
-	}
+			{
+				Name = "Breech",
+				LPos = Vector(-58.9363, 0, 0),
+				LAng = Angle(0, 0, 0),
+				Width = 6.6929133858268,
+				Height = 6.6929133858268,
+			},
+		},
+	},
 })
 
 Weapons.RegisterItem("37mmC", "C", {
@@ -155,12 +164,12 @@ ACF.SetCustomAttachment("models/tankgun_new/tankgun_100mm.mdl", "muzzle", Vector
 
 ACF.AddHitboxes("models/tankgun_new/tankgun_100mm.mdl", {
 	Breech = {
-		Pos       = Vector(-13),
-		Scale     = Vector(36, 12.5, 12.5),
-		Sensitive = true
+		Pos = Vector(-13),
+		Scale = Vector(36, 12.5, 12.5),
+		Sensitive = true,
 	},
 	Barrel = {
-		Pos   = Vector(90),
-		Scale = Vector(170, 7.5, 7.5)
-	}
+		Pos = Vector(90),
+		Scale = Vector(170, 7.5, 7.5),
+	},
 })

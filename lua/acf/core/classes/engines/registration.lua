@@ -1,10 +1,9 @@
-local ACF     = ACF
+local ACF = ACF
 local Classes = ACF.Classes
 local Engines = Classes.Engines
-local Types   = Classes.EngineTypes
+local Types = Classes.EngineTypes
 local Entries = Classes.GetOrCreateEntries(Engines)
 local Loaded
-
 
 local function AddPerformanceData(Engine)
 	local Type = Types.Get(Engine.Type)
@@ -27,9 +26,9 @@ function Engines.Register(ID, Data)
 
 	if not Group.LimitConVar then
 		Group.LimitConVar = {
-			Name   = "_acf_engine",
-			Amount = 16,
-			Text   = "Maximum amount of ACF engines a player can create."
+			Name = "_acf_engine",
+			Amount = 2,
+			Text = "Maximum amount of ACF engines a player can create.",
 		}
 	end
 

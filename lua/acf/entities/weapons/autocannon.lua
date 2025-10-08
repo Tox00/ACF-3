@@ -1,52 +1,51 @@
-local ACF     = ACF
+local ACF = ACF
 local Weapons = ACF.Classes.Weapons
 
-
 Weapons.Register("AC", {
-	Name        = "Autocannon",
+	Name = "Autocannon",
 	Description = "#acf.descs.weapons.ac",
-	Model       = "models/autocannon/autocannon_50mm.mdl",
-	Sound       = "acf_base/weapons/ac_fire4.mp3",
+	Model = "models/autocannon/autocannon_50mm.mdl",
+	Sound = "acf_base/weapons/ac_fire4.mp3",
 	MuzzleFlash = "auto_muzzleflash_noscale",
-	IsScalable  = true,
+	IsScalable = true,
 	IsAutomatic = true,
-	IsBelted	= true,
-	Mass        = 1953, -- Relative to the model's volume
-	Spread      = 0.2,
+	IsBelted = true,
+	Mass = 1953, -- Relative to the model's volume
+	Spread = 0.2,
 	ScaleFactor = 0.86, -- Corrective factor to account for improperly scaled base models
-	ReloadMod 	= 0.5, -- Load time multiplier. Represents the ease of manipulating the weapon's ammunition
+	ReloadMod = 0.5, -- Load time multiplier. Represents the ease of manipulating the weapon's ammunition
 	TransferMult = 20, -- Thermal energy transfer rate
 	CyclicCeilMult = 2, -- How high above base cyclic the gun can be set to
 	Round = {
-		MaxLength  = 40, -- Relative to the Base caliber, in cm
+		MaxLength = 40, -- Relative to the Base caliber, in cm
 		PropLength = 32.5, -- Relative to the Base caliber, in cm
 	},
 	Preview = {
 		Height = 80,
-		FOV    = 60,
+		FOV = 60,
 	},
-	Caliber	= {
-		Base = 50,
-		Min  = 20,
-		Max  = 60,
+	Caliber = {
+		Base = 20,
+		Min = 20,
+		Max = 37,
 	},
 	MagSize = {
-		Min = 500,
-		Max = 200,
+		Min = 300,
+		Max = 150,
 	},
 	MagReload = {
 		Min = 10,
 		Max = 20,
 	},
 	Cyclic = {
-		Min = 250,
-		Max = 150,
+		Min = 300,
+		Max = 250,
 	},
 	LimitConVar = {
 		Name = "_acf_autocannon",
-		Amount = 4,
-		Text = "Maximum amount of ACF auto cannons a player can create."
-	}
+		Amount = 2,
+		Text = "Maximum amount of ACF auto cannons a player can create.",
+	},
 })
 
 Weapons.RegisterItem("20mmAC", "AC", {
@@ -69,12 +68,12 @@ ACF.SetCustomAttachment("models/autocannon/autocannon_50mm.mdl", "muzzle", Vecto
 
 ACF.AddHitboxes("models/autocannon/autocannon_50mm.mdl", {
 	Breech = {
-		Pos       = Vector(-3, 0, -1.6),
-		Scale     = Vector(52, 15, 19),
+		Pos = Vector(-3, 0, -1.6),
+		Scale = Vector(52, 15, 19),
 		Sensitive = true,
 	},
 	Barrel = {
-		Pos   = Vector(65),
+		Pos = Vector(65),
 		Scale = Vector(83, 5, 5),
-	}
+	},
 })
